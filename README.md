@@ -89,7 +89,7 @@ E.g. If we specify `.eslintrc` as following:
 
 ```json
 {
- "settings: {
+ "settings": {
    "react": {
       "component-detector": "OwnBaseComponent"
    }
