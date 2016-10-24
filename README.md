@@ -37,6 +37,7 @@ You can also specify some settings that will be shared across all the plugin rul
 {
   "settings": {
     "react": {
+      "component-detector": "PureRenderComponent", // Regex for Additonally detecting Component super class. Default as null.
       "createClass": "createClass", // Regex for Component Factory to use, default to "createClass"
       "pragma": "React",  // Pragma to use, default to "React"
       "version": "15.0" // React version, default to the latest React stable release
