@@ -5,6 +5,8 @@ ESLint-plugin-React
 
 React specific linting rules for ESLint
 
+- [Enhanced Component detection](/adventure-yunfei/eslint-plugin-react/blob/master/README.md#configuration---component-detector) here by [adventure-yunfei](https://github.com/adventure-yunfei)
+
 # Installation
 
 Install [ESLint](https://www.github.com/eslint/eslint) either locally or globally.
@@ -37,7 +39,7 @@ You can also specify some settings that will be shared across all the plugin rul
 {
   "settings": {
     "react": {
-      "component-detector": "PureRenderComponent", // Regex for Additonally detecting Component super class. Default as null.
+      "component-detector": "OwnBaseComponent", // Regex for Additonally detecting Component super class. Default as null.
       "createClass": "createClass", // Regex for Component Factory to use, default to "createClass"
       "pragma": "React",  // Pragma to use, default to "React"
       "version": "15.0" // React version, default to the latest React stable release
@@ -77,6 +79,38 @@ Finally, enable all of the rules that you would like to use.  Use [our preset](#
     "react/jsx-uses-react": "error",
     "react/jsx-uses-vars": "error",
   }
+```
+
+### Configuration - "component-detector"
+
+Specify this to **additionally** detect Component Super Class.
+
+E.g. If we specify `.eslintrc` as following:
+
+```json
+{
+ "settings: {
+   "react": {
+      "component-detector": "OwnBaseComponent"
+   }
+ }
+}
+```
+
+Then we can use it to apply rules from eslint-plugin-react to more components:
+
+```javascript
+// Suppose we have defined our "OwnBaseComponent" for React.
+//    and specified eslint config - "react/prop-types": "error"
+
+class CheckThisComponent extends OwnBaseComponent {
+    render() {
+        // Without "component-detector" config, eslint won't complain the "content" prop type missing,
+        // cause this component is not considered as React component
+        return <span>{this.props.content}</span>;
+    }
+}
+
 ```
 
 # List of supported rules
