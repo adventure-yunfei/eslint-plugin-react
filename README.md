@@ -5,7 +5,7 @@ ESLint-plugin-React
 
 React specific linting rules for ESLint
 
-- [Enhanced Component detection](/adventure-yunfei/eslint-plugin-react/blob/master/README.md#configuration---component-detector) here by [adventure-yunfei](https://github.com/adventure-yunfei)
+- [Enhanced Component detection](#configuration---component-detector) here by [adventure-yunfei](https://github.com/adventure-yunfei)
 
 # Installation
 
